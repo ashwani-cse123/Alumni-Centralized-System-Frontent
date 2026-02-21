@@ -1,0 +1,101 @@
+<nav class="bg-white border-b sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+
+    <!-- LOGO -->
+    <span
+      routerLink="/"
+      class="text-2xl font-bold text-indigo-600 cursor-pointer">
+      AlumniConnect
+    </span>
+
+    <!-- SEARCH -->
+    <div class="hidden md:flex items-center bg-gray-100 rounded-lg px-3 py-1 w-80">
+      <i class="fa fa-search text-gray-500 text-sm"></i>
+      <input
+        type="text"
+        placeholder="Search"
+        class="bg-transparent outline-none px-2 w-full text-sm"
+      />
+    </div>
+
+    <!-- MENU -->
+    <div class="flex items-center gap-6">
+
+      <!-- HOME -->
+      <a
+        routerLink="/navbar"
+        routerLinkActive="active-link"
+        class="nav-link">
+        <i class="fa fa-home text-lg"></i>
+        <span class="hidden md:block">Home</span>
+      </a>
+
+      <!-- NETWORK -->
+      <a
+        routerLink="myNetwork"
+        routerLinkActive="active-link"
+        class="nav-link">
+        <i class="fa fa-users text-lg"></i>
+        <span class="hidden md:block">My Network</span>
+      </a>
+
+      <!-- JOBS -->
+      <a
+        routerLink="jobIntrenhips"
+        routerLinkActive="active-link"
+        class="nav-link">
+        <i class="fa fa-briefcase text-lg"></i>
+        <span class="hidden md:block">Jobs</span>
+      </a>
+
+      <!-- MESSAGES -->
+      <a
+        routerLink="messages"
+        routerLinkActive="active-link"
+        class="nav-link">
+        <i class="fa fa-comment-dots text-lg"></i>
+        <span class="hidden md:block">Messaging</span>
+      </a>
+
+      <!-- NOTIFICATIONS -->
+      <a
+        routerLink="notify"
+        routerLinkActive="active-link"
+        class="relative nav-link">
+        <i class="fa fa-bell text-lg"></i>
+        <span
+          class="absolute -top-1 -right-2 bg-red-600 text-white text-xs px-1 rounded-full">
+          18
+        </span>
+        <span class="hidden md:block">Notifications</span>
+      </a>
+      
+      <!-- avtar button -->
+      <button 
+        (click)="getAccess()"
+      class="cursor-pointer" type="submit">
+         <img src="https://i.pravatar.cc/50" class="w-10 h-10 rounded-full">
+      </button>
+
+      <!-- LOGIN / LOGOUT -->
+      @if(!isLogged){
+        <button
+          routerLink="/login"
+          class="bg-indigo-600 text-white px-4 py-1.5 rounded-lg text-sm hover:bg-indigo-700">
+          Login
+        </button>
+      }
+
+      @if(isLogged){
+        <button
+          (click)="onLogout()"
+          class="bg-red-600 text-white px-4 py-1.5 rounded-lg text-sm hover:bg-red-700">
+          Logout
+        </button>
+      }
+
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

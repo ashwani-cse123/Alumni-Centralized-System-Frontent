@@ -1,0 +1,86 @@
+<div class="min-h-screen bg-gray-100 p-6">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <!-- ================= LEFT : CREATE POST ================= -->
+    <div class="lg:col-span-1 bg-white rounded-xl shadow p-6 h-fit sticky top-6">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">
+        Create Post
+      </h2>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-600">Post Content</label>
+        <textarea
+          rows="4"
+          [(ngModel)]="postObj.content"
+          name="content"
+          placeholder="Write something for alumni..."
+          class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none resize-none">
+        </textarea>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-600">Image URL</label>
+        <input
+          type="text"
+          [(ngModel)]="postObj.imageUrl"
+          name="image"
+          placeholder="https://image-link"
+          class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
+      </div>
+
+      <button
+        type="submit"
+        (click)="creatPost()"
+        class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition">
+        Post
+      </button>
+    </div>
+
+    <!-- ================= RIGHT : POST TABLE ================= -->
+    <div class="lg:col-span-2 bg-white rounded-xl shadow p-6">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">
+        Alumni Posts
+      </h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead class="bg-gray-100 text-gray-700">
+            <tr>
+              <th class="px-4 py-2 text-left">Content</th>
+              <th class="px-4 py-2 text-left">Image</th>
+              <th class="px-4 py-2 text-center">Action</th>
+            </tr>
+          </thead>
+
+          <tbody class="divide-y">
+
+            <!-- ROW 1 -->
+           @for (item of getPostObj; track $index) {
+             <tr class="hover:bg-gray-50">
+              <td class="px-4 py-2 text-gray-700">
+                {{item.content}}
+              </td>
+              <td class="px-4 py-2">
+                <img
+                  src=""
+                  alt="item.imageUrl"
+                  class="w-16 h-10 object-cover rounded">
+              </td>
+              <td class="px-4 py-2 text-center">
+                <button
+                type="button"
+                 (click)="deletePost(item.id)"
+                 class="px-3 py-1 text-sm bg-red-500 text-white rounded">
+                  Delete
+                </button>
+              </td>
+            </tr>
+           }
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>

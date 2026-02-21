@@ -1,0 +1,303 @@
+<div class="main">
+    <div class="max-w-6xl mx-auto grid grid-cols-12 gap-6 pt-6 font-sans">
+
+        <!-- ================= LEFT PROFILE ================= -->
+        <div class="col-span-12 lg:col-span-9">
+
+            <div class="bg-white rounded-xl shadow overflow-hidden">
+
+                <!-- COVER -->
+                <div class="h-40 bg-linear-to-r from-cyan-600 to-gray-600"></div>
+
+                <!-- AVATAR -->
+                <div class="relative px-6">
+                    <div class="absolute -top-16 w-32 h-32 rounded-full bg-indigo-600
+                 flex items-center justify-center text-white text-4xl font-bold
+                 border-4 border-white">
+                        M
+                    </div>
+                </div>
+
+                <!-- INFO -->
+                <div class="pt-20 px-6 pb-6">
+                    <h1 class="text-2xl font-bold flex items-center gap-2">
+                        Mansi Varshney
+                        <i class="fa-solid fa-circle-check text-blue-500 text-lg"></i>
+                    </h1>
+
+                    <p class="text-gray-600 mt-1">
+                        Student at Dr. A.P.J. Abdul Kalam Technical University
+                    </p>
+
+                    <p class="text-sm text-gray-500 mt-1">
+                        <i class="fa-solid fa-location-dot mr-1"></i>
+                        Noida, Uttar Pradesh, India
+                    </p>
+
+                    <!-- STATS -->
+                    <div class="flex gap-6 mt-3 text-sm">
+                        <span><b>2,017</b> followers</span>
+                        <span><b>500+</b> connections</span>
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="flex gap-3 mt-4">
+                        <button
+                            class="px-5 py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700">
+                            <i class="fa-solid fa-user-plus mr-1"></i> Follow
+                        </button>
+
+                        <button class="px-5 py-2 border rounded-full font-semibold hover:bg-gray-100">
+                            <i class="fa-solid fa-message mr-1"></i> Message
+                        </button>
+
+                        <button class="px-4 py-2 border rounded-full hover:bg-gray-100">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ABOUT -->
+            <div class="bg-white rounded-xl shadow mt-5 p-6">
+                <h3 class="font-semibold text-lg mb-2">About</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Passionate student exploring Data Science, Machine Learning and
+                    Software Development. Open to internships and freelance projects.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ================= RIGHT SIDE ================= -->
+        <div class="col-span-12 lg:col-span-3 space-y-6">
+
+
+            <div class="max-w-md mx-auto bg-white rounded-xl shadow">
+
+                <!-- HEADER -->
+                <div class="flex border-b text-sm font-semibold relative">
+
+                    <!-- FOLLOWERS -->
+                    <button type="button" (click)="showFollowers()"
+                        class="flex-1 py-3 text-center transition-all duration-300" [ngClass]="!isFollow 
+      ? 'text-indigo-600 bg-indigo-50'
+      : 'text-gray-500 hover:text-indigo-600'">
+                        Followers
+                    </button>
+
+                    <!-- FOLLOWING -->
+                    <button type="button" (click)="showFollowing()"
+                        class="flex-1 py-3 text-center transition-all duration-300" [ngClass]="isFollow 
+      ? 'text-indigo-600 bg-indigo-50' 
+      : 'text-gray-500 hover:text-indigo-600'">
+                        Following
+                    </button>
+
+                    <!-- SLIDING UNDERLINE -->
+                    <span class="absolute bottom-0 left-0 h-0.5 w-1/2 bg-indigo-600 transition-transform duration-300"
+                        [style.transform]="isFollow ? 'translateX(100%)' : 'translateX(0%)'">
+                    </span>
+
+                </div>
+
+
+                <!-- FOLLOWERS -->
+                @if (!isFollow) {
+                <div id="followers" class="p-4 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-indigo-600 rounded-full text-white flex items-center justify-center font-bold">
+                                A
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold">Aman Kumar</p>
+                                <p class="text-xs text-gray-500">Backend Developer</p>
+                            </div>
+                        </div>
+                        <button class="px-3 py-1 text-xs border rounded-full">View</button>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-indigo-600 rounded-full text-white flex items-center justify-center font-bold">
+                                R
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold">Riya Sharma</p>
+                                <p class="text-xs text-gray-500">UI/UX Designer</p>
+                            </div>
+                        </div>
+                        <button class="px-3 py-1 text-xs border rounded-full">View</button>
+                    </div>
+                </div>
+                }
+                @if(isFollow) {
+                <!-- FOLLOWING -->
+                <div id="following" class="p-4 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-gray-600 rounded-full text-white flex items-center justify-center font-bold">
+                                S
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold">Saurabh Singh</p>
+                                <p class="text-xs text-gray-500">Full Stack Developer</p>
+                            </div>
+                        </div>
+                        <button class="px-3 py-1 text-xs border text-blue-500 rounded-full">
+                            View
+                        </button>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-gray-600 rounded-full text-white flex items-center justify-center font-bold">
+                                P
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold">Priya Verma</p>
+                                <p class="text-xs text-gray-500">HR Recruiter</p>
+                            </div>
+                        </div>
+                        <button class="px-3 py-1 text-xs border text-blue-500 rounded-full">
+                            View
+                        </button>
+                    </div>
+                </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- post card -->
+
+<!-- POSTS FEED -->
+<div class="bg-gray-100 p-4 rounded-xl">
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- POST CARD -->
+    <div class="bg-white rounded-xl shadow">
+
+      <!-- POST HEADER -->
+      <div class="flex items-start gap-3 p-4">
+        <div class="w-12 h-12 rounded-full bg-indigo-600 text-white
+                    flex items-center justify-center font-bold text-lg">
+          M
+        </div>
+
+        <div class="flex-1">
+          <p class="text-sm font-semibold text-gray-900">
+            Mansi Varshney
+            <span class="text-xs text-gray-500 font-normal"> • 3rd+</span>
+          </p>
+          <p class="text-xs text-gray-500">
+            Student at AKTU
+          </p>
+          <p class="text-[11px] text-gray-400">
+            4d • 🌍
+          </p>
+        </div>
+
+        <button class="text-gray-400 hover:text-gray-600">
+          ⋯
+        </button>
+      </div>
+
+      <!-- POST TEXT -->
+      <div class="px-4 pb-3 text-sm text-gray-800">
+        Hello Connections 👋 <br><br>
+        Sharing a small update about my recent academic journey and projects.
+        Grateful for all the support and guidance.
+      </div>
+
+      <!-- POST IMAGE -->
+      <img
+        src="https://picsum.photos/id/1011/600/400"
+        class="w-full max-h-87.5 object-cover">
+
+      <!-- POST STATS -->
+      <div class="px-4 py-2 text-xs text-gray-500 flex justify-between">
+        <span>👍 14 reactions</span>
+        <span>1 comment</span>
+      </div>
+
+      <!-- POST ACTIONS -->
+      <div class="border-t flex justify-around py-2 text-sm text-gray-600">
+        <button class="flex items-center gap-1 hover:text-indigo-600">
+          👍 Like
+        </button>
+        <button class="flex items-center gap-1 hover:text-indigo-600">
+          💬 Comment
+        </button>
+        <button class="flex items-center gap-1 hover:text-indigo-600">
+          🔁 Repost
+        </button>
+        <button class="flex items-center gap-1 hover:text-indigo-600">
+          ✉️ Send
+        </button>
+      </div>
+    </div>
+
+    <!-- POST CARD 2 -->
+    <div class="bg-white rounded-xl shadow">
+
+      <div class="flex items-start gap-3 p-4">
+        <div class="w-12 h-12 rounded-full bg-gray-700 text-white
+                    flex items-center justify-center font-bold text-lg">
+          A
+        </div>
+
+        <div class="flex-1">
+          <p class="text-sm font-semibold text-gray-900">
+            Aman Kumar
+          </p>
+          <p class="text-xs text-gray-500">
+            Full Stack Developer
+          </p>
+          <p class="text-[11px] text-gray-400">
+            1w • 🌍
+          </p>
+        </div>
+
+        <button class="text-gray-400 hover:text-gray-600">
+          ⋯
+        </button>
+      </div>
+
+      <div class="px-4 pb-3 text-sm text-gray-800">
+        Successfully deployed my Angular + Spring Boot project 🚀
+        Open for feedback and collaboration!
+      </div>
+
+      <img
+        src="https://picsum.photos/id/1025/600/400"
+        class="w-full max-h-87.5 object-cover">
+
+      <div class="px-4 py-2 text-xs text-gray-500 flex justify-between">
+        <span>👍 36 reactions</span>
+        <span>8 comments</span>
+      </div>
+
+      <div class="border-t flex justify-around py-2 text-sm text-gray-600">
+        <button class="hover:text-indigo-600">👍 Like</button>
+        <button class="hover:text-indigo-600">💬 Comment</button>
+        <button class="hover:text-indigo-600">🔁 Repost</button>
+        <button class="hover:text-indigo-600">✉️ Send</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<app-footer></app-footer>
